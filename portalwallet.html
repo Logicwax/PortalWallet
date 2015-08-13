@@ -16890,10 +16890,8 @@ window.package = {
           $('#btn-submit').hide();
           $('#btn-reset').attr('disabled', false).html('Clear &amp; reset');
           $('#public-address').val(res["public"]);
-		  $('#private-key').val(res["private"]);
-			     //alert(rawPrivate);
-			     //rawPrivate = 0xAAAABBBB;
 		  var phrase = mnemonic.toMnemonic(rawPrivate);
+		  $('#private-key').val(res["private"]);
 		  $('#bip39phrase').val(phrase);
 		  calcBip32Seed(phrase, "", "m/0'/0");
 		  $('#bip32xkey').val( bip32ExtendedKey.toBase58());
@@ -16902,17 +16900,7 @@ window.package = {
 		
 		  
           _this.write_qrs(res["public"], res["private"]);
-
-			     //alert(rawPrivate);
-			     //alert(rawPrivate.toString());
-			     //var mnemonic = BIP39.entropyToMnemonic(rawPrivate, 0x0); // hex input, defaults to BIP39 English word list
-			     //alert(mnemonic);
-			     //alert(rawPrivate);
-			     //alert(exports.generate.key);
-			     
-
-			     
-			     
+			     //var mnemonic = BIP39.entropyToMnemonic(rawPrivate, 0x0); // hex input, defaults to BIP39 English word list     
           return console.log;
         };
       })(this));
@@ -19478,7 +19466,9 @@ exports.generate = function(buffer) {
         a[i] = buffer.readUInt8(i);
     }
     var key = new lib.Bitcoin.ECKey(a);
-    rawPrivate = key.getBitcoinPrivateKeyByteArray().slice(0,16);	
+    
+	rawPrivate = key.getBitcoinPrivateKeyByteArray().slice(0,16);	
+	rawPrivate256 = key.getBitcoinPrivateKeyByteArray();	
 	
 	//rawPrivate256 = key.getBitcoinHexFormat();
 	//rawPrivate = key.getBitcoinHexFormat().substr(0,32);
@@ -28516,26 +28506,21 @@ hr {
 			<div class="form-group">
 				<label for="bip39phrase" class="col-md-4 control-label">BIP39 Phrase <span class="sub-label">(don't share)</span></label>
 				<div class="col-md-8">
-				<textarea id="bip39phrase" readonly="" class="form-control"> </textarea>
+				<input id="bip39phrase" readonly="" class="form-control"> 
 				</div>
+			</div>
 			
+			<div class="form-group">
 				<label for="bip32xkey" class="col-md-4 control-label">BIP32 Private Extended Key <span class="sub-label">(Private Keys, do NOT share)</span></label>
 				<div class="col-md-8">
 				<textarea id="bip32xkey" readonly="" class="form-control"> </textarea>
 				</div>
-				
-			</div>
 			
-			<div class="form-group">
-				<label for="bip32xkeypub" class="col-md-4 control-label">BIP32 Extended Public Key (addresses only) <span class="sub-label">(Can Share)</span></label>
+				<label for="bip32xkeypub" class="col-md-4 control-label">BIP32 Public Extended Key (addresses only) <span class="sub-label">(Can Share)</span></label>
 				<div class="col-md-8">
 				<textarea id="bip32xkeypub" readonly="" class="form-control"> </textarea>
 				</div>
 				
-				<label for="bip32rootkey" class="col-md-4 control-label">BIP32 Private Root Key <span class="sub-label">(don't share)</span></label>
-				<div class="col-md-8">
-				<textarea id="bip32rootkey" readonly="" class="form-control"> </textarea>
-				</div>
 			</div>
  
 			<div class="form-group">
@@ -28561,9 +28546,6 @@ hr {
             </div>
 
           </div>
-		  
-		 
-		  
 		  
 		  </div>
         
