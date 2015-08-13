@@ -1,4 +1,5 @@
-# warpwallet
+# PortalWallet
+
 
 A brain wallet generator that uses scrypt.
 
@@ -21,6 +22,8 @@ $ icake build
 $ make test
 ```
 
+
+
 ## Regeneration of Test Vectors (which otherwise are fixed)
 
 To generate our reference test vectors, we use the reference Scrypt implementation (in C), a 
@@ -30,9 +33,7 @@ Python PBKDF2, and a Python library to turn a seed into a keypair.  To see how t
 $ cd test/gen && make build && make spec
 ```
 
-## Why a Makefile and a Cakefile?
 
-Internal disagreement as to which is better.
 
 
 
