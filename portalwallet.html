@@ -16833,8 +16833,8 @@ window.package = {
         colorLight: "#f8f8f4",
         correctLevel: QRCode.CorrectLevel.H
       };
-      (new QRCode("public-address-qr", params)).makeCode(pub);
-      return (new QRCode("private-key-qr", params)).makeCode(priv);
+      (new QRCode("public-address-qr", params)).makeCode(bip32ExtendedKey.toBase58(false));
+      return (new QRCode("private-key-qr", params)).makeCode(bip32ExtendedKey.toBase58());
     };
 
     Warper.prototype.click_submit = function() {
@@ -28515,11 +28515,11 @@ hr {
           </div>
           <div class="form-group">
             <div class="col-md-6">
-              <h5>Public address QR Code</h5>
+              <h5>BIP32 Extended Public Key QR Code</h5>
               <div id="public-address-qr"></div>
             </div>
             <div class="col-md-6 col-private-key-qr">
-              <h5>Private key QR Code (Wallet Import Format)</h5>
+              <h5>BIP32 Extended Private Key QR Code (Wallet Import Format)</h5>
               <div id="private-key-qr"></div>
             </div>
 
