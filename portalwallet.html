@@ -2,9 +2,6 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>PortalWallet - Secure deterministic bitcoin brainwallet</title>
   <meta charset="utf-8">
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		
 	<script type="text/javascript">
 	//---------------------------BEGIN BIP39.JS -------------------------------------------
@@ -28483,13 +28480,13 @@ hr {
         </div>
         <div class="output-form" style="display:none;">
           <div class="form-group">
-            <label for="public-address" class="col-md-4 control-label">Public bitcoin address</label>
+            <label for="public-address" class="col-md-4 control-label">Single Public bitcoin address</label>
             <div class="col-md-8">
               <input id="public-address" readonly="" class="form-control">
             </div>
           </div>
           <div class="form-group">
-            <label for="private-key" class="col-md-4 control-label">Private key <span class="sub-label">(don't share)</span></label>
+            <label for="private-key" class="col-md-4 control-label">Single Private key <span class="sub-label">(don't share)</span></label>
             <div class="col-md-8">
               <input id="private-key" readonly="" class="form-control">
             </div>
@@ -28500,7 +28497,7 @@ hr {
               <textarea id="bip39phrase" class="form-control"> </textarea>
             </div>
 			
-			<label for="bip32rootkey" class="col-md-4 control-label">BIP32 Root Key <span class="sub-label">(don't share)</span></label>
+			<label for="bip32rootkey" class="col-md-4 control-label">BIP32 Private Root Key <span class="sub-label">(don't share)</span></label>
 			<div class="col-md-8">
               <textarea id="bip32rootkey" class="form-control"> </textarea>
             </div>
