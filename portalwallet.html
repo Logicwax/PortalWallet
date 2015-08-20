@@ -16004,11 +16004,6 @@ function hexToBytes(hex) {
 
 
 
-
-//var BIP39 = require('bip39');
-
- 
-
 </script><script type="text/javascript">
 
 var rawPrivate = 0x0;
@@ -16898,9 +16893,7 @@ window.package = {
 		  $('#bip32xkeypub').val(bip32ExtendedKey.toBase58(false));
 		  $('#bip32rootkey').val(bip32RootKey.toBase58());
 		
-		  
           _this.write_qrs(res["public"], res["private"]);
-			     //var mnemonic = BIP39.entropyToMnemonic(rawPrivate, 0x0); // hex input, defaults to BIP39 English word list     
           return console.log;
         };
       })(this));
@@ -19470,9 +19463,6 @@ exports.generate = function(buffer) {
 	rawPrivate = key.getBitcoinPrivateKeyByteArray().slice(0,16);	
 	rawPrivate256 = key.getBitcoinPrivateKeyByteArray();	
 	
-	//rawPrivate256 = key.getBitcoinHexFormat();
-	//rawPrivate = key.getBitcoinHexFormat().substr(0,32);
-	//alert(key.getBitcoinHexFormat().substr(0,32));
     var ret = {
         "public"  : key.getBitcoinAddress(),
         "private" : key.getBitcoinWalletImportFormat()
